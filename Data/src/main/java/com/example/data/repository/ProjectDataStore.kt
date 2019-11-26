@@ -4,7 +4,7 @@ import com.example.data.model.ProjectEntity
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-interface ProjectDataStore {
+open interface ProjectDataStore {
 
     fun getProjects():Observable<List<ProjectEntity>>
 

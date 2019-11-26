@@ -19,7 +19,7 @@ project.ext{
     jUnitVersion = "4.12"
     assertJVersion = "3.8.0"
     mockitoVersion = "2.2.0"
-    mockitoKotlinVersion = '2.1.0'
+    mockitoKotlinVersion = '2.2.0'
     mockitoAndroidVersion = '2.23.4'
     robolectricVersion = '4.1'
 

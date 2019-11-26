@@ -6,6 +6,7 @@ import amir.ardalani.domain.model.Project
 import amir.ardalani.domain.repository.ProjectRepository
 import amir.ardalani.domain.test.ProjectDataFactory
 import com.nhaarman.mockitokotlin2.whenever
+
 import io.reactivex.Observable
 import io.reactivex.internal.operators.observable.ObservableJust
 import org.junit.Before
@@ -13,9 +14,11 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
+
 class GetProjectTest {
     private lateinit var getProject: GetProject
-    @Mock lateinit var projectRepository: ProjectRepository
+    @Mock
+    lateinit var projectRepository: ProjectRepository
     @Mock lateinit var postExecutionThread: PostExecutionThread
 
     @Before

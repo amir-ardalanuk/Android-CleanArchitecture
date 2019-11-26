@@ -16,6 +16,9 @@ dependencies {
     testImplementation dataTestDependencies.kotlinJUnit
     testImplementation dataTestDependencies.assertJ
     testImplementation dataTestDependencies.mockitoKotlin
+
+    testImplementation "com.nhaarman:mockito-kotlin-android:2.23.4"
+
 }
 
 sourceCompatibility = "8"
