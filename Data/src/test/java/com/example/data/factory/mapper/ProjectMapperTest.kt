@@ -34,8 +34,5 @@ class ProjectMapperTest {
         assertEquals(entity.starCount,model.starCount)
         assertEquals(entity.ownerAvater,model.ownerAvater)
         assertEquals(entity.ownerName,model.ownerName)
-        assertEquals(entity.isBookmarked,model.isBookmarked)
-
-
     }
 }

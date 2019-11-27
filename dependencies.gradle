@@ -14,6 +14,12 @@ project.ext{
     rxJavaVersion = "2.0.2"
     javaxAnnotationVersion = "1.0"
     javaxInjectVersion = "1"
+    axAnnotation = '1.0.1'
+    daggerVersion = '2.20'
+    gsonVersion = '2.8.5'
+    okhttpVersion = '3.12.0'
+    retrofitVersion = '2.4.0'
+
 
     //Testing
     jUnitVersion = "4.12"
@@ -22,6 +28,11 @@ project.ext{
     mockitoKotlinVersion = '2.2.0'
     mockitoAndroidVersion = '2.23.4'
     robolectricVersion = '4.1'
+
+    axTestRunner = '1.1.1'
+    axTestRules = '1.1.1'
+    axTestCore = '1.1.0'
+    axTestJunit = '1.1.0'
 
     domainDependencies = [
             javaAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
@@ -51,5 +62,28 @@ project.ext{
             robolectric  : "org.robolectric:robolectric:${robolectricVersion}"
     ]
 
+    remoteDependencies = [
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            rxKotlin          : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxJava            : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            gson              : "com.google.code.gson:gson:$gsonVersion",
+            javaxAnnotations  : "javax.annotation:jsr250-api:$javaxAnnotationVersion",
+            javaxInject       : "javax.inject:javax.inject:$javaxInjectVersion",
+            androidAnnotations: "androidx.annotation:annotation:$axAnnotation",
+            okhttp            : "com.squareup.okhttp3:okhttp:$okhttpVersion",
+            okhttpInterceptor : "com.squareup.okhttp3:logging-interceptor:$okhttpVersion",
+            retrofit          : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            retrofitAdapter   : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    ]
+
+    remoteTestDependencies = [
+            junit        : "junit:junit:$jUnitVersion",
+            assertJ      : "org.assertj:assertj-core:$assertJVersion",
+            kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            testRunner   : "androidx.test:runner:$axTestRunner",
+            testRules    : "androidx.test:rules:$axTestRules"
+    ]
 
 }

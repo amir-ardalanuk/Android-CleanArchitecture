@@ -11,8 +11,7 @@ object ProjectFactory{
             ProjectDataFactory.randomUuid(),
             ProjectDataFactory.randomUuid(),
             ProjectDataFactory.randomUuid(),
-            ProjectDataFactory.randomUuid(),
-            ProjectDataFactory.randomBoolean())
+            ProjectDataFactory.randomUuid())
     }
 
     fun makeProject():Project {
