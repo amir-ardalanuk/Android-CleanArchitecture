@@ -1,13 +1,17 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+
 android {
-    compileSdkVersion 28
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    //buildtools
 
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 28
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         versionCode 1
         versionName "1.0"
 
@@ -25,10 +29,37 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//    implementation 'com.android.support:appcompat-v7:28.0.0'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    def cacheDependencies = rootProject.ext.cacheDependencies
+    def cacheTestDependencies = rootProject.ext.cacheTestDependencies
+
+    compileOnly cacheDependencies.javaxAnnotations
+    implementation project(':Data')
+    implementation cacheDependencies.dagger
+    implementation cacheDependencies.gson
+    implementation cacheDependencies.rxKotlin
+    implementation cacheDependencies.kotlin
+    implementation cacheDependencies.javaxAnnotations
+    implementation cacheDependencies.javaxInject
+    implementation cacheDependencies.androidAnnotations
+    implementation cacheDependencies.roomRuntime
+    implementation cacheDependencies.roomRxJva
+    implementation cacheDependencies.appCompat
+    testImplementation cacheTestDependencies.junit
+    testImplementation cacheTestDependencies.assertJ
+    testImplementation cacheTestDependencies.kotlinJUnit
+    testImplementation cacheTestDependencies.mockitoKotlin
+    testImplementation cacheTestDependencies.roomTesting
+    testImplementation cacheTestDependencies.archTesting
+    testImplementation cacheTestDependencies.testRunner
+    testImplementation cacheTestDependencies.testRules
+    testImplementation cacheTestDependencies.testCore
+    testImplementation cacheTestDependencies.robolectric
+    kapt cacheDependencies.daggerCompiler
+    kapt cacheDependencies.roomCompiler
 }
