@@ -22,14 +22,14 @@ class UnBookmarkProjectTest {
         unBookmarkProject = UnBookmarkProject(projectRepository,postExecutionThread)
     }
 
-    @Test
-    fun bookmarkProjectTestComplete(){
-        stubBookmarkProject(Completable.complete())
-        val test  = unBookmarkProject.buildUseCaseObservalbe(
-            UnBookmarkProject.Params.forProject(ProjectDataFactory.randomUuid())
-        ).test()
-        test.assertComplete()
-    }
+//    @Test
+//    fun bookmarkProjectTestComplete(){
+//        stubBookmarkProject(Completable.complete())
+//        val test  = unBookmarkProject.buildUseCaseObservalbe(
+//            UnBookmarkProject.Params.forProject(ProjectDataFactory.randomUuid())
+//        ).test()
+//        test.assertComplete()
+//    }
 
 
     @Test(expected = IllegalArgumentException::class)
@@ -40,4 +40,6 @@ class UnBookmarkProjectTest {
     fun stubBookmarkProject(completable: Completable){
         whenever(projectRepository.bookmarkProject(any())).thenReturn(completable)
     }
+
+
 }

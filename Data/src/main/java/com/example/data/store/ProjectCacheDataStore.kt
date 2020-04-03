@@ -11,7 +11,7 @@ open class ProjectCacheDataStore @Inject constructor(
     private  val projectCache: ProjectCache
 ) : ProjectDataStore {
     override fun getProjects(): Observable<List<ProjectEntity>> {
-        return projectCache.getProjects()
+        return projectCache.getProjects().toObservable()
     }
 
     override fun saveProjects(projects: List<ProjectEntity>): Completable {

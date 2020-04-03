@@ -8,11 +8,16 @@ import com.example.cache.db.ProjectConstants.QUERY_PROJECTS
 import com.example.cache.db.ProjectConstants.QUERY_BOOKMARKED_PROJECT
 import com.example.cache.db.ProjectConstants.DELETE_PROJECTS
 import com.example.cache.db.ProjectConstants.QUERY_UPDATE_BOOKMARKED_STATUS
+import com.example.cache.db.ProjectConstants.QUERY_EXISTS
 import com.example.cache.model.CachedProject
 import io.reactivex.Flowable
+import io.reactivex.Single
 
 @Dao
 abstract class CachedProjectDao {
+
+    @Query(QUERY_EXISTS)
+    abstract fun cachedProjectsExist(): Single<Int>
 
     @Query(QUERY_PROJECTS)
     abstract fun getProjects():Flowable<List<CachedProject>>
@@ -27,5 +32,5 @@ abstract class CachedProjectDao {
     abstract fun getBookmarkedProjects():Flowable<List<CachedProject>>
 
     @Query(QUERY_UPDATE_BOOKMARKED_STATUS)
-    abstract fun setBookmarkStatus(isBookmarked:Boolean,projectId : String):Flowable<List<CachedProject>>
+    abstract fun setBookmarkStatus(isBookmarked:Boolean,projectId : String)
 }

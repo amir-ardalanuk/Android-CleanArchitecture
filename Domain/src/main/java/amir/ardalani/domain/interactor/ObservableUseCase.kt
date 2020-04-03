@@ -23,4 +23,8 @@ abstract class ObservableUseCase<T,in Params> constructor(
     fun addDisposeable(disposable: Disposable){
         this.disposeables.add(disposable)
     }
+
+    fun dispose(){
+        this.disposeables.dispose()
+    }
 }

@@ -10,11 +10,12 @@ dependencies {
     implementation domainDependencies.javaAnnotation
     implementation domainDependencies.javaInject
     implementation domainDependencies.rxjava
+    implementation domainDependencies.kotlin
 
     testImplementation testDomainDependencies.junit
     testImplementation testDomainDependencies.assertj
     testImplementation testDomainDependencies.mockito
 }
 
-sourceCompatibility = "6"
-targetCompatibility = "6"
+//sourceCompatibility = "6"
+//targetCompatibility = "6"
