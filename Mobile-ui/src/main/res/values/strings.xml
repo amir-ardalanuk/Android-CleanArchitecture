@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">mobile-ui</string>
-    <string name="appName">Mobile-ui</string>
+    <string name="app_name">Clean Music Player</string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>

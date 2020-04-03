@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 open
 class GithubTrendingServiceFactory {
 
-    fun makeGithubTrandingService(isDebug: Boolean):GithubTrendingService{
+    companion object fun makeGithubTrandingService(isDebug: Boolean):GithubTrendingService {
         val client = makeOkHttpClient(makeLogginInterceptor(isDebug))
         return makeGithubTrendingService(client)
     }

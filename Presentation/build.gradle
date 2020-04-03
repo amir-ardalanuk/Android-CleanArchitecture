@@ -1,10 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
 
     def globalConfiguration = rootProject.extensions.getByName("ext")
     compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
@@ -14,8 +12,7 @@ android {
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
         targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles 'consumer-rules.pro'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -23,6 +20,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    libraryVariants.all {
+        it.generateBuildConfig.enabled = false
     }
 
 }
@@ -37,13 +41,10 @@ dependencies {
     implementation presentationDependencies.kotlin
     implementation presentationDependencies.javaxInject
     implementation presentationDependencies.rxKotlin
-    implementation presentationDependencies.daggerCompiler
-    implementation presentationDependencies.dagger
     implementation presentationDependencies.rxAndroid
     implementation presentationDependencies.javaxAnnotation
     implementation presentationDependencies.archViewModel
     implementation presentationDependencies.archLiveData
-    kapt presentationDependencies.archCompiler
 
     testImplementation presentationTestDependencies.junit
     testImplementation presentationTestDependencies.mockito

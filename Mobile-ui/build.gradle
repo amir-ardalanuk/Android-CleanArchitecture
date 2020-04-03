@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
 
     compileSdkVersion androidCompileSdkVersion
-    buildToolsVersion androidBuildToolsVersion
+    //buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
         applicationId "com.example.app"
@@ -28,11 +28,11 @@ android {
         }
     }
 
-//    testOptions {
-//        unitTests {
-//            includeAndroidResources = true
-//        }
-//    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 
     buildTypes {
         release {
@@ -65,7 +65,7 @@ dependencies {
     implementation mobileUIDependencies.glide
     implementation mobileUIDependencies.javaxAnnotations
     implementation mobileUIDependencies.javaxInject
-    //implementation mobileUIDependencies.androidAnnotations
+    implementation mobileUIDependencies.androidAnnotations
     implementation mobileUIDependencies.appCompat
     implementation mobileUIDependencies.recyclerView
     implementation mobileUIDependencies.design
@@ -79,13 +79,13 @@ dependencies {
     implementation mobileUIDependencies.lifecycleRuntime
     implementation mobileUIDependencies.lifecycleExtensions
     implementation mobileUIDependencies.lifecycleCommon
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
     kapt mobileUIDependencies.daggerCompiler
     kapt mobileUIDependencies.glideCompiler
-    kapt mobileUIDependencies.daggerAndroidProcessor
+    //kapt mobileUIDependencies.daggerAndroidProcessor
     kapt mobileUIDependencies.roomCompiler
-
-
-
 
 
     implementation 'com.android.support:support-annotations:28.0.0'
