@@ -7,6 +7,6 @@ class ProjectModel (val id :String,
                     val name : String?,
                     @SerializedName("full_name") val fullname :String?,
                     @SerializedName("stargazers_count") val starCount : Int?,
-                    @SerializedName("stargazers_count") val dateCreate : String?,
+                    @SerializedName("created_at") val dateCreate : String?,
                     val owner:OwnerModel?
                     )

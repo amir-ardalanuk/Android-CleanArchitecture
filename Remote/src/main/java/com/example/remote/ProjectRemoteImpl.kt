@@ -12,7 +12,7 @@ class ProjectRemoteImpl @Inject constructor(
     private val mapper: ProjectResponseModelMapper
 ) : ProjectRemote {
     override fun getProjects(): Observable<List<ProjectEntity>> {
-        return service.searchRepositories("", "", "")
+        return service.searchRepositories("tetris+language:assembl", "stars", "desc")
             .map { it.items.map { mapper.mapFromModel(it) } }
     }
 

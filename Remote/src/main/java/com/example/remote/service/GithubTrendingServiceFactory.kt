@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 open
@@ -18,6 +19,7 @@ class GithubTrendingServiceFactory {
             .baseUrl("https://api.github.com/")
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
         return retrofit.create(GithubTrendingService::class.java)
     }
@@ -33,9 +35,9 @@ class GithubTrendingServiceFactory {
     private fun makeLogginInterceptor(isDebug: Boolean) :HttpLoggingInterceptor {
         val loggin = HttpLoggingInterceptor()
         loggin.level = if(isDebug){
-            HttpLoggingInterceptor.Level.BODY
+            HttpLoggingInterceptor.Level.BASIC
         }else{
-            HttpLoggingInterceptor.Level.NONE
+            HttpLoggingInterceptor.Level.BASIC
         }
         return loggin
     }

@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:padding="8sp"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8sp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/item_home_avatar"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:id="@+id/item_home_main_tv"
+            android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            tools:text="Hassan"/>
-</LinearLayout>
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/item_home_avatar"
+            app:layout_constraintTop_toTopOf="@+id/item_home_avatar"
+            tools:text="Hassan" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_home_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/item_home_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/item_home_main_tv" />
+
+    <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/item_home_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/item_home_date_tv"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_home_start_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
